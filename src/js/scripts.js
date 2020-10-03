@@ -22,26 +22,23 @@ function showSlides (n) {
 		block.classList.add("appear");
 	}
 	var appear;
+	var windowIterator;
 
 	if (window.innerWidth <= 375){
-		for(var j = 0; j<blocks.length-1; j++){
-			if(j == 0 || j == blocks.length){
-				appear = setTimeout(appearBlock, 300 * j, blocks[j]);
-			}else {
-				appear = setTimeout(appearBlock, 300 * j, blocks[j]);
-				appear = setTimeout(appearBlock, 300 * j+1, blocks[j+1]);
-			}
-		}
+		windowIterator = 1;
 	}else {
-		for(var j = 0; j<blocks.length-3; j++){
-			if(j == 0 || j == blocks.length){
-				appear = setTimeout(appearBlock, 300 * j, blocks[j]);
-			}else {
-				appear = setTimeout(appearBlock, 300 * j, blocks[j]);
-				appear = setTimeout(appearBlock, 300 * j+3, blocks[j+3]);
-			}
+		windowIterator = 3;
+	}
+
+	for(var j = 0; j<blocks.length-windowIterator; j++){
+		if(j == 0 || j == blocks.length){
+			appear = setTimeout(appearBlock, 300 * j, blocks[j]);
+		}else {
+			appear = setTimeout(appearBlock, 300 * j, blocks[j]);
+			appear = setTimeout(appearBlock, 300 * j+windowIterator, blocks[j+windowIterator]);
 		}
 	}
+
 }
 
 function plusSlides(m){
