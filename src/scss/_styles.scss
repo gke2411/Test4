@@ -15,23 +15,23 @@ body{
 }
 
 .article{
-	&-index{
+	&__index{
 		font-weight: 700;
 	}
-	&-title{
+	&__title{
 		font-weight: 700;
 	}
-	&-text{
+	&__text{
 		font-weight: 400;
 	}
 }
 
 .slider{
-	&-container{}
-	&-item{
+	&__container{}
+	&__item{
 		border: 1px solid #000000;
 		display: none;
-		&-active{
+		&_active{
 			display: -webkit-flex;
 			display: -ms-flex;
 			display: flex;
@@ -41,7 +41,7 @@ body{
 			flex-direction: row;
 		}
 	}
-	&-nav{
+	&__nav{
 		display: -webkit-flex;
 		display: -ms-flex;
 		display: flex;
@@ -51,7 +51,7 @@ body{
 	}
 }
 
-.item-name{
+.item__name{
 	text-transform: uppercase;
 	vertical-align: middle;
 	background: #171717;
@@ -64,7 +64,7 @@ body{
 	}
 }
 
-.nav-item{
+.nav__item{
 	display: inline-block;
 	cursor: pointer;
 	border-radius: 50%;
@@ -81,13 +81,13 @@ body{
 	}
 }
 
-.item-name{
+.item__name{
 	display: block;
 	text-align: center;
 	font-weight: 600;
 	opacity: 0;
 	transition: all .6s ease;
-	&-appear{
+	&_appear{
 		-webkit-animation-name: appear;
 		-webkit-animation-duration:  2s;
 		animation-name: appear;
@@ -115,53 +115,53 @@ body{
 	}
 	.article{
 		margin: 25px 0 25px 0;
-		&-index{
+		&__index{
 			font-size: 1.2rem;
 			margin: 5px 0 5px 0;
 		}
-		&-title{
+		&__title{
 			font-size: 4.5rem;
 			line-height: 63px;
 			margin: 25px 0 25px 0;
 		}
-		&-text{
+		&__text{
 			font-size: 1.6rem;
 			line-height: 28px;
 		}
 	}
 	.slider{
 		margin-top: 40px 0 25px 0;
-		&-container{}
-		&-nav{
+		&__container{}
+		&__nav{
 			width: 80%;
 			margin: auto;
 		}
-		&-item{}
+		&__item{}
 	}
-	.nav-item{
+	.nav__item{
 		width: 50px;
 		height: 50px;
 	}
-	.item-name{
+	.item__name{
 		width: 50%;
 		height: 97px;
 		padding: 40px;
 	}
 }
-// ---mobile end---
 
+// ---mobile end---
 @media screen and (min-width: 568px){
 	.article{
 		width: 50%;
 		margin: 300px 25% 150px 25%;
 			font-size: 1.4rem;
 			line-height: 24px;
-		&-title{
+		&__title{
 			font-size: 8rem;
 			line-height: 90px;
 			margin: 25px 0 25px 0;
 		}
-		&-text{
+		&__text{
 			font-size: 2.2rem;
 			line-height: 40px;
 			opacity: 0.8;
@@ -171,23 +171,22 @@ body{
 	.slider{
 		margin: 0;
 		padding: 0;
-		&-container{
-		}
-		&-item{}
-		&-nav{
+		&__container{}
+		&__item{}
+		&__nav{
 			width: 20%;
 			margin: auto;
 			margin-top: 60px;
 		}
 	}
-	.item-name{
+	.item__name{
 		width: 25%;
 		height: 10%;
 		font-size: 1.9em;
 		line-height: 29px;
 		padding: 7% 0 7% 0;
 	}
-	.nav-item{
+	.nav__item{
 		height: 66px;
 		width: 66px;
 		padding: 12px;

@@ -1,23 +1,23 @@
 var slideIndex = 0;
-var slides = document.getElementsByClassName('slider-item');
+var slides = document.getElementsByClassName('slider__item');
 
 function showSlides (n) {
 	var blocksAll;
  	for (var i = 0; i<slides.length; i++) {
-		slides[i].classList.remove("slider-item-active");
-		blocksAll = document.getElementsByClassName('item-name-appear');
+		slides[i].classList.remove("slider__item_active");
+		blocksAll = document.getElementsByClassName('item__name_appear');
 		if(blocksAll.length){
 			for(var k = 0; k < blocksAll.length; k++){
-				blocksAll[k].classList.remove("item-name-appear");
+				blocksAll[k].classList.remove("item__name_appear");
 			}
 		}
 	}
 
-	slides[n].classList.add("slider-item-active");
-	var blocks = slides[n].getElementsByClassName('item-name');
+	slides[n].classList.add("slider__item_active");
+	var blocks = slides[n].getElementsByClassName('item__name');
 
 	var appearBlock = function(block){
-		block.classList.add("item-name-appear");
+		block.classList.add("item__name_appear");
 	}
 	var appear;
 	var windowIterator;
@@ -54,12 +54,12 @@ function currentSlide(m){
 for (var l = 0; l<slides.length; l++ ){
 	var li = document.createElement('li');
 
-	li.classList.add("nav-item");
+	li.classList.add("nav__item");
 	li.setAttribute("data-index", l);
 	li.innerHTML = "&#xb7";
 
 
-	parent = document.getElementsByClassName('slider-nav');
+	parent = document.getElementsByClassName('slider__nav');
 	parent[parent.length-1].appendChild(li);
 
 	li.addEventListener('click', function(event){
