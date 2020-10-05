@@ -1,30 +1,28 @@
-var slideIndex = 1;
+var slideIndex = 0;
 var slides = document.getElementsByClassName('slider-item');
 
 function showSlides (n) {
-	var blocks;
+	var blocksAll;
  	for (var i = 0; i<slides.length; i++) {
-		slides[i].classList.add("hidden");
-		slides[i].classList.remove("active");
-		blocks = slides[i].getElementsByClassName('item-name');
-		if(blocks.length){
-			for(var k = 0; k < blocks.length; k++){
-				blocks[k].classList.remove("appear");
+		slides[i].classList.remove("slider-item-active");
+		blocksAll = document.getElementsByClassName('item-name-appear');
+		if(blocksAll.length){
+			for(var k = 0; k < blocksAll.length; k++){
+				blocksAll[k].classList.remove("item-name-appear");
 			}
 		}
 	}
 
-	slides[n-1].classList.remove("hidden");
-	slides[n-1].classList.add("active");
-	blocks = slides[n-1].getElementsByClassName('item-name');
+	slides[n].classList.add("slider-item-active");
+	var blocks = slides[n].getElementsByClassName('item-name');
 
 	var appearBlock = function(block){
-		block.classList.add("appear");
+		block.classList.add("item-name-appear");
 	}
 	var appear;
 	var windowIterator;
 
-	if (window.innerWidth <= 375){
+	if (window.innerWidth <= 414){
 		windowIterator = 1;
 	}else {
 		windowIterator = 3;
@@ -38,26 +36,36 @@ function showSlides (n) {
 			appear = setTimeout(appearBlock, 300 * j+windowIterator, blocks[j+windowIterator]);
 		}
 	}
-
 }
 
-function plusSlides(m){
-	n = !m ? 1 : slideIndex + m;
-	if(n > slides.length){	n = 1;	}
-	if(n < 1){	n = slides.length;	}
-
-	slideIndex = n;
-
-	showSlides(slideIndex);
+function getIndex (m){
+	n = !m ? 0 : m;
+	if(n > slides.length){	n = 0;	}
+	if(n < 0){	n = slides.length;	}
+	return n;
 }
 
 function currentSlide(m){
-n = !m ? 1 : m;
-if(n > slides.length){	n = 1;	}
-if(n < 1){	n = slides.length;	}
-
-slideIndex = n;
+	//console.log(m);
+	slideIndex = getIndex(m);
 	showSlides(slideIndex);
+}
+
+for (var l = 0; l<slides.length; l++ ){
+	var li = document.createElement('li');
+
+	li.classList.add("nav-item");
+	li.setAttribute("data-index", l);
+	li.innerHTML = "&#xb7";
+
+
+	parent = document.getElementsByClassName('slider-nav');
+	parent[parent.length-1].appendChild(li);
+
+	li.addEventListener('click', function(event){
+		iterator = event.target.getAttribute('data-index');
+		currentSlide(iterator);
+	})
 }
 
 showSlides(slideIndex);
